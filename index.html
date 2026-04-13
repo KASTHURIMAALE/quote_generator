@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote Pro Max</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="controls">
+        <input type="text" id="searchInput" placeholder="Search..." oninput="searchQuotes()">
+        <select id="categoryFilter" onchange="filterQuotes()">
+            <option value="all">All Topics</option>
+            <option value="tech">Tech</option>
+            <option value="mindset">Mindset</option>
+            <option value="classic">Classic</option>
+        </select>
+        <button onclick="toggleDarkMode()" id="theme-btn" title="Toggle Dark Mode"><i class="fas fa-moon"></i></button>
+        <button onclick="toggleHistory()" id="history-btn" title="View History"><i class="fas fa-history"></i></button>
+    </div>
+
+    <div class="quote-box" id="quoteBox">
+        <header>Quote of the day</header>
+        <div class="underline"></div>
+        
+        <div class="content" id="quoteContainer">
+            <i class="fa-solid fa-quote-left"></i>
+            <p id="quote">Loading inspiration...</p>
+            <i class="fa-solid fa-quote-right"></i>
+        </div>
+        
+        <div class="author-row">
+            <span id="author"></span>
+        </div>
+
+        <div class="extra-features">
+            <ul>
+                <li onclick="speakQuote()" title="Listen"><i class="fas fa-volume-up"></i></li>
+                <li onclick="copyQuote()" title="Copy"><i class="fas fa-copy"></i></li>
+                <li onclick="toggleFavorite()" title="Favorite" id="fav-btn"><i class="far fa-heart"></i></li>
+                <li onclick="toggleAutoPlay()" title="Auto-Play" id="auto-btn"><i class="fas fa-play"></i></li>
+            </ul>
+            <button onclick="displayNewQuote()" id="new-quote-btn">New Quote</button>
+        </div>
+        <div id="progress-bar"></div>
+    </div>
+
+    <div id="sidebar" class="sidebar">
+        <h3>Recent Quotes</h3>
+        <div id="history-list"></div>
+    </div>
+
+    <div id="toast">Action Successful!</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
